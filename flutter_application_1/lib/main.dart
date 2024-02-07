@@ -25,6 +25,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<String> _texts = ['Texto'];
 
+  final Map<String, IconData> _textIcons = {
+    'Texto': Icons.accessibility_sharp,
+    'HOLA': Icons.accessible_forward,
+    'ADEU': Icons.assist_walker_sharp,
+  };
+
   void _addText(String text) {
     setState(() {
       _texts.add(text);
@@ -55,9 +61,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ListView.builder(
                 itemCount: _texts.length,
                 itemBuilder: (context, index) {
+                  final text = _texts[index];
+                  final iconData = _textIcons[text] ?? Icons.error;
                   return ListTile(
-                    leading: Icon(Icons.accessible_forward),
-                    title: Text(_texts[index]),
+                    leading: Icon(iconData),
+                    title: Text(text),
                   );
                 },
               ),
