@@ -43,12 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _removeText(int index) {
-    setState(() {
-      _texts.removeAt(index);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
